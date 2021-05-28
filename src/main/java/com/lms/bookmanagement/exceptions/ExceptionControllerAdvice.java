@@ -23,7 +23,7 @@ public class ExceptionControllerAdvice {
     }
 
     @ExceptionHandler(CategoryNotFoundException.class)
-    public ResponseEntity<Object> handleCNFException(BookNotFoundException exception) {
+    public ResponseEntity<Object> handleCNFException(CategoryNotFoundException exception) {
 
         ExceptionInfo exInfo = new ExceptionInfo(exception.getMessage(), HttpStatus.NOT_FOUND, ZonedDateTime.now());
 

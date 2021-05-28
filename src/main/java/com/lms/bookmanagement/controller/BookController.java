@@ -9,7 +9,7 @@ import com.lms.bookmanagement.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +29,7 @@ public class BookController {
     public List<Categories> getAllcategories() {
 
         Logger logger = LoggerFactory.getLogger(BookController.class);
-        logger.info("logging Info : All The Categories Listed");
+        logger.info("logging Info : All The Categories Listed shown");
 
         return (List<Categories>) categoryRepository.findAll();
     }
@@ -39,6 +39,9 @@ public class BookController {
 
         Logger logger = LoggerFactory.getLogger(BookController.class);
         logger.info("logging Info :  The Categories has been Listed");
+
+      // Categories createCategories = categoryRepository.saveAll();
+        categoryRepository.save(category);
 
         return categoryRepository.save(category);
     }
@@ -84,9 +87,11 @@ public class BookController {
     @GetMapping("/book")
     public List<Book> getAllBooks() {
         Logger logger = LoggerFactory.getLogger(BookController.class);
-        logger.info("logging Info : All The Books Listed ");
+        logger.info("logging Info : All The Books Listed shown");
 
         return (List<Book>) bookRepository.findAll();
+
+
     }
 
     @PostMapping("/book")

@@ -1,8 +1,6 @@
 package com.lms.bookmanagement.model;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -14,6 +12,8 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "Book")
 public class Book {
 

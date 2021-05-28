@@ -9,14 +9,16 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 @Getter
 @Setter
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-public class Categories implements Serializable {
+@Table(name = "Categories")
+public class Categories  {
     @Id
     @GeneratedValue
     private long Id;
