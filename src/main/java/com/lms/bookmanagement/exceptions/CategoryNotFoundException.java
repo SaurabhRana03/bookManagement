@@ -1,10 +1,8 @@
-package com.lms.bookManagement.exceptions;
+package com.lms.bookmanagement.exceptions;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
-
-import java.util.Locale;
 
 @Getter
 @ResponseStatus(value = HttpStatus.NOT_FOUND)

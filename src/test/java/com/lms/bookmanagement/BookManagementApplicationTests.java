@@ -1,4 +1,4 @@
-package com.lms.bookManagement;
+package com.lms.bookmanagement;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
