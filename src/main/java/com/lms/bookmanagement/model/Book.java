@@ -1,38 +1,34 @@
 package com.lms.bookmanagement.model;
 
-import lombok.*;
-import org.springframework.stereotype.Component;
-
+import lombok.Getter;
+import lombok.Setter;
 import java.io.Serializable;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Getter
 @Setter
-@Entity
-@NoArgsConstructor
-@AllArgsConstructor
-@Table(name = "Book")
-public class Book {
+@Entity(name = "Book")
+public class Book implements Serializable{
 
     @Id
-    @GeneratedValue
-    private long Id;
-    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String title;
-    @Column
-    private String description;
-    @Column
     private String author;
-    @Column
+    private String description;
     private int publishYear;
-    @Column
     private int cost;
-    @Column
-    private int purchaseDate;
-
-
+    private  int purchaseDate;
 
 }
+
+
+
+
+
 
 

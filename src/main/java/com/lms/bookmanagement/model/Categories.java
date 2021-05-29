@@ -15,13 +15,11 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "Categories")
-public class Categories  {
+public class Categories implements Serializable {
     @Id
     @GeneratedValue
     private long Id;
-    @Column
     private String name;
-    @Column
     private String description;
 
 
