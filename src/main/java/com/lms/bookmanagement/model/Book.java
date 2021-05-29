@@ -1,13 +1,11 @@
 package com.lms.bookmanagement.model;
 
 import lombok.*;
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -19,13 +17,20 @@ public class Book {
 
     @Id
     @GeneratedValue
-    private String title;
-    private String description;
-    private String author;
-    private int publishYear;
-    private int cost;
-    private int purchaseDate;
     private long Id;
+    @Column
+    private String title;
+    @Column
+    private String description;
+    @Column
+    private String author;
+    @Column
+    private int publishYear;
+    @Column
+    private int cost;
+    @Column
+    private int purchaseDate;
+
 
 
 }

@@ -1,17 +1,25 @@
 package com.lms.bookmanagement.repository;
 
 import com.lms.bookmanagement.model.Categories;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+
+@Service
 public class CategoryRepositoryImpl implements CategoryRepository {
     @Override
     public <S extends Categories> S save(S s) {
-        return null;
+        return s;
     }
 
     @Override
     public <S extends Categories> Iterable<S> saveAll(Iterable<S> iterable) {
+        return null;
+    }
+
+    public <S extends Categories> Iterable<S> saveAll(Categories iterable) {
         return null;
     }
 

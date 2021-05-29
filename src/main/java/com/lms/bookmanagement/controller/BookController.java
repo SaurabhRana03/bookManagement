@@ -4,8 +4,8 @@ import com.lms.bookmanagement.exceptions.BookNotFoundException;
 import com.lms.bookmanagement.exceptions.CategoryNotFoundException;
 import com.lms.bookmanagement.model.Book;
 import com.lms.bookmanagement.model.Categories;
-import com.lms.bookmanagement.repository.BookRepository;
-import com.lms.bookmanagement.repository.CategoryRepository;
+import com.lms.bookmanagement.repository.BookRepositoryimpl;
+import com.lms.bookmanagement.repository.CategoryRepositoryImpl;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,9 +21,9 @@ import java.util.List;
 @RequestMapping("/api")
 public class BookController {
 
-    private final BookRepository bookRepository;
+    private final BookRepositoryimpl bookRepository;
 
-    private final CategoryRepository categoryRepository;
+    private final CategoryRepositoryImpl categoryRepository;
 
     @GetMapping("/categories")
     public List<Categories> getAllcategories() {
@@ -35,7 +35,7 @@ public class BookController {
     }
 
     @PostMapping("/categories")
-    public  Categories createCategories(@Valid @RequestBody Categories category) {
+    public Categories  createCategories(@RequestBody Categories category) {
 
         Logger logger = LoggerFactory.getLogger(BookController.class);
         logger.info("logging Info :  The Categories has been Listed");
@@ -43,7 +43,7 @@ public class BookController {
       // Categories createCategories = categoryRepository.saveAll();
         categoryRepository.save(category);
 
-        return categoryRepository.save(category);
+        return  categoryRepository.save(category);
     }
     @GetMapping("/categories/{id}")
     public Categories getCategoriesById(@PathVariable(value = "id") Long categoriesId) {
@@ -95,12 +95,13 @@ public class BookController {
     }
 
     @PostMapping("/book")
-    public Book createBook(@Valid @RequestBody Book book) {
+    public Book createBook(@RequestBody Book book) {
 
         Logger logger = LoggerFactory.getLogger(BookController.class);
         logger.info("logging Info : All The Books created ");
+        bookRepository.save(book);
 
-        return bookRepository.save(book);
+        return book;
     }
 
     @GetMapping("/book/{id}")
@@ -115,7 +116,7 @@ public class BookController {
 
     @PutMapping("/book/{id}")
     public Book updateBook(@PathVariable(value = "id") Long bookId,
-                           @Valid @RequestBody Book bookDetails) {
+                            @RequestBody Book bookDetails) {
 
         Logger logger = LoggerFactory.getLogger(BookController.class);
         logger.info("logging Info : All The Books Updated with given id");

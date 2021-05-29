@@ -14,14 +14,5 @@ public class BookManagementApplication {
 		SpringApplication.run(BookManagementApplication.class, args);
 	}
 
-	@Bean
-	public BookRepositoryimpl bookRepository() {
-		return new BookRepositoryimpl ();
-	}
-
-	@Bean
-	public CategoryRepositoryImpl categoryRepository(){
-		return  new CategoryRepositoryImpl();
-	}
 
 }

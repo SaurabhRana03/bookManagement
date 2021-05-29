@@ -2,9 +2,10 @@ package com.lms.bookmanagement.repository;
 
 
 import com.lms.bookmanagement.model.Book;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-
+@Service
 public class BookRepositoryimpl implements BookRepository{
     @Override
     public <S extends Book> S save(S s) {
